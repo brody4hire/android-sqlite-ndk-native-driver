@@ -50,7 +50,7 @@ sqlc_native_response_ct* sqlc_db_open(const char *filename, int flags)
 
   MYLOG("db_open %s result %d ptr %p", filename, r1, d1);
 
-  if (r1 != 0) return -r1;
+  if (r1 != 0) return NULL; // XXX TODO LOG & PROPERLY HANDLE POTENTIAL DB OPEN ERROR HERE
 
   sqlite3_db_config(d1, SQLITE_DBCONFIG_DEFENSIVE, 1, NULL);
 
